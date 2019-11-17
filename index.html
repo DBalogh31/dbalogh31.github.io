@@ -92,7 +92,7 @@
                 <div class="w3-content w3-container w3-padding-64" id="about">
                     <h3 class="w3-center">ABOUT ME</h3>
                     <p class="w3-center"><em>BSc (Hons) Computer Science Undergraduate</em></p>
-                    <p>My name is David, I am an aspiring software developer with a rich background in computer technology. I enjoy creating all sorts of programs and always aim to challenge myself to further my knowledge and techniques. In my spare time when I'm not engrossed with my university studies I enjoy spending time with my friends as well as work on individual projects; these normally include designing and coding small scale computer games</p>
+                    <p>My name is David, I am an aspiring software developer with a rich background in computer technology. I enjoy creating all sorts of programs and always aim to challenge myself to further my knowledge and techniques. In my spare time when I'm not engrossed with my studies I enjoy spending time with my friends as well as working on individual projects; these normally include designing and coding small scale computer games.</p>
                     </div>
                 </div>
 
@@ -105,6 +105,26 @@
                 <div class="w3-content w3-container w3-padding-64" id="portfolio">
                     <h3 class="w3-center">MY WORK</h3>
                     <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
+                    <div class="w3-row-padding w3-center">
+			<div class="w3-col m3">
+                            <img src="/assets/images/1.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="C++ String Manipulator" href="#">
+                        </div>
+                      	<div class="w3-col m3">
+                            <img src="/assets/images/2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="C++ Anagram Finder" href="#">
+                      	</div>
+                      	<div class="w3-col m3">
+                            <img src="/assets/images/3.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="JavaScript Paint Program" href="#">
+                      	</div>
+                    </div>
+		</div>
+
+                <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+                    <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+                    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                      <img id="img01" class="w3-image">
+                      <p id="caption" class="w3-opacity w3-large"></p>
+                      <a id="link" href="#">Link to this project</a>
+                    </div>
                 </div>
 
                 <div class="bgimg-3 w3-display-container w3-opacity-min">
@@ -127,6 +147,17 @@
         </div>
 
         <script>
+            function onClick(element) {
+                document.getElementById("img01").src = element.src;
+                document.getElementById("modal01").style.display = "block";
+                var captionText = document.getElementById("caption");
+                var imghref = element.getAttribute("href");
+                var linkText = document.getElementById("link");
+                captionText.innerHTML = element.alt;
+                linkText.setAttribute("href", imghref);
+                linkText.setAttribute("target", "_blank")
+            }
+		
             window.onscroll = function() {myFunction()};
             function myFunction() {
                 var navbar = document.getElementById("myNavbar");
